@@ -1,9 +1,18 @@
+'use client'
 import Image from 'next/image'
 import React from 'react'
+import { useRef } from 'react'
 import { Button } from '@/components/ui/button'
 import logo from '../app/logo1.png'
 
 const Navbar = () => {
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const handleScroll = (scrollValue: number) => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollValue // Set custom scroll value
+    }
+  }
+
   return (
     <header className="header fixed left-0 w-full top-0 backdrop-filter backdrop-blur-md bg-opacity-50">
       <nav className="bg-white border-gray-200 dark:bg-gray-900 py-5">
@@ -13,8 +22,13 @@ const Navbar = () => {
             <h1 className="mt-1">Threat</h1>
             <h1 className="text-green-600 mt-1">Slueth</h1>
           </span>
-          <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse pl-5 ml-10">
-            <Button variant="default">Contribute</Button>
+          <div
+            className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse pl-5 ml-10"
+            ref={scrollRef}
+          >
+            <Button variant="default" onClick={() => handleScroll(1000)}>
+              Contribute
+            </Button>
           </div>
           <div
             className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 pr-4"

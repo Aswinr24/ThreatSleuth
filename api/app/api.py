@@ -141,7 +141,7 @@ async def url_check(text: URLInput) -> dict:
 @app.post("/predict/email")
 async def email_check(text: emailInput) -> dict:
     data=[transform(text.email)]
-    vectorizer=joblib.load('models\vectorizer_mail.pkl')
+    vectorizer=joblib.load('models\Vectorizer_mail.pkl')
     data = vectorizer.transform(data)
     SVC_spamMail_classifier= open('models\SVC_spamMail_classifier.pkl','rb')
     model = joblib.load(SVC_spamMail_classifier)
@@ -154,7 +154,7 @@ async def email_check(text: emailInput) -> dict:
 @app.post("/predict/msg")
 async def msg_check(text: msgInput) -> dict:
     data=[transform(text.msg)]
-    vectorizer=joblib.load('models\vectorizer_msg.pkl')
+    vectorizer=joblib.load('models\Vectorizer_msg.pkl')
     data = vectorizer.transform(data)
     SGDC_spamMSG_classifier = open('models\SGDC_spamMSG_classifier.pkl','rb')
     model = joblib.load(SGDC_spamMSG_classifier)
