@@ -11,7 +11,7 @@ const space_mono = Space_Mono({
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between pt-24 px-24">
       <div className={space_mono.className}>
         <Navbar />
         <Main />
