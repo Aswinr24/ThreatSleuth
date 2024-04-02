@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
-const submitted = () => {
+const Submitted = () => {
   const router = useRouter()
 
   useEffect(() => {
@@ -22,4 +22,4 @@ const submitted = () => {
   )
 }
 
-export default submitted
+export default Submitted

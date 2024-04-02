@@ -362,7 +362,7 @@ const Main = () => {
               />
             </svg>
             <h1 className="mt-2 text-center text-2xl font-bold text-gray-500">
-              don't fret Its a SAFE URL!
+              don`&apos;t fret Its a SAFE URL!
             </h1>
             <p className="my-4 text-center text-sm text-gray-500 "></p>
             <div className="space-x-4 py-4 text-center"></div>
@@ -417,7 +417,8 @@ const Main = () => {
               />
             </svg>
             <h1 className="mt-2 text-center text-2xl font-bold text-gray-500">
-              don't fret, It doesn't seem to be a spam or phishing e-mail!
+              don`&apos;t fret, It doesn`&apos;t seem to be a spam or phishing
+              e-mail!
             </h1>
             <p className="my-4 text-center text-sm text-gray-500 "></p>
             <div className="space-x-4 py-4 text-center"></div>
@@ -472,7 +473,7 @@ const Main = () => {
               />
             </svg>
             <h1 className="mt-2 text-center text-2xl font-bold text-gray-500">
-              don't fret, It doesn't seem to be a spam message!
+              don`&apos;t fret, It doesn`&apos;t seem to be a spam message!
             </h1>
             <p className="my-4 text-center text-sm text-gray-500 "></p>
             <div className="space-x-4 py-4 text-center"></div>

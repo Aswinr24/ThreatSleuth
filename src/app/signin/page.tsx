@@ -25,7 +25,9 @@ function AuthButton() {
       className={`${space_mono.className} p-24 pl-40 flex-col min-h-screen justify-center items-center`}
     >
       <div className="px-60 ml-7 items-center justify-center text-xl">
-        <h2 className="pl-20 ml-10 pt-10">Just A verification, don't fret</h2>
+        <h2 className="pl-20 ml-10 pt-10">
+          Just A verification, don&apos;t fret
+        </h2>
       </div>
       <br />
       <div className="py-10 px-60 text-xl">

@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
-import ContactSubmit from '@/components/ContactSubmit'
 import { useRouter } from 'next/navigation'
 
 const Contact = () => {
