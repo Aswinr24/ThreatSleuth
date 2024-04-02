@@ -21,7 +21,7 @@ const space_mono = Space_Mono({
   weight: '700',
 })
 
-const page = () => {
+const Page = () => {
   const router = useRouter()
   const { data: session } = useSession()
   const [url, setUrl] = useState('')
@@ -88,4 +88,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
