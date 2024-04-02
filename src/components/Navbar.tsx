@@ -7,13 +7,26 @@ import logo from '../app/logo1.png'
 import { LuMenu } from 'react-icons/lu'
 
 const Navbar = () => {
-  const scrollRef = useRef<HTMLDivElement>(null)
-  const handleScroll = (scrollValue: number) => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollValue // Set custom scroll value
-    }
-  }
   const [isOpen, setIsOpen] = useState(false)
+
+  const handleClickContribute = () => {
+    window.scrollTo({
+      top: 1500,
+      behavior: 'smooth',
+    })
+  }
+  const handleClickAbout = () => {
+    window.scrollTo({
+      top: 500,
+      behavior: 'smooth',
+    })
+  }
+  const handleClickContact = () => {
+    window.scrollTo({
+      top: 2000,
+      behavior: 'smooth',
+    })
+  }
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
@@ -83,13 +96,10 @@ const Navbar = () => {
               </ul>
             </div>
           )}
-          <div
-            className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse pl-5 ml-10"
-            ref={scrollRef}
-          >
+          <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse pl-5 ml-10">
             <Button
               variant="default"
-              onClick={() => handleScroll(1000)}
+              onClick={() => handleClickContribute()}
               className="lg:block sm:hidden hidden"
             >
               Contribute
@@ -107,8 +117,9 @@ const Navbar = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="javascript:void(0);"
                   className="block px-2 pl-1 ml-6  text-gray-900 rounded hover:text-green-700"
+                  onClick={() => handleClickAbout()}
                 >
                   About
                 </a>
@@ -116,8 +127,9 @@ const Navbar = () => {
               <li></li>
               <li>
                 <a
-                  href="#"
+                  href="javascript:void(0);"
                   className="block pr-4 mr-2 text-gray-900 rounded hover:text-green-700"
+                  onClick={() => handleClickContact()}
                 >
                   Contact
                 </a>

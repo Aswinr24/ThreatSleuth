@@ -11,17 +11,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form'
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
+import Thankyou from '@/components/Thankyou'
 
 const space_mono = Space_Mono({
   subsets: ['latin'],
@@ -34,6 +26,7 @@ const page = () => {
   const { data: session } = useSession()
   const [url, setUrl] = useState('')
   const [urltype, setUrltype] = useState<string>('')
+  const [result, setResult] = useState(false)
   const input = {
     url: url,
     type: urltype,
@@ -47,7 +40,10 @@ const page = () => {
       let data = await res.json()
       console.log('User input saved successfully')
       console.log(data)
-      router.push('/')
+      setResult(true)
+      setTimeout(() => {
+        router.push('/')
+      }, 3000)
       console.log(urltype)
     } catch (error) {
       console.error('Error saving user input:', error)
@@ -87,6 +83,7 @@ const page = () => {
           Submit
         </Button>
       </div>
+      {result && <Thankyou />}
     </main>
   )
 }
