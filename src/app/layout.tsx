@@ -1,19 +1,24 @@
 import { Space_Mono } from 'next/font/google'
 import './globals.css'
+import { getServerSession } from 'next-auth'
+import SessionProvider from '@/components/SessionProvider'
 
 const space_mono = Space_Mono({
   subsets: ['latin'],
   variable: '--font-space-mono',
   weight: '700',
 })
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const session = await getServerSession()
   return (
     <html lang="en" className={space_mono.variable}>
-      <body>{children}</body>
+      <SessionProvider session={session}>
+        <body>{children}</body>
+      </SessionProvider>
     </html>
   )
 }

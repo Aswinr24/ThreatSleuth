@@ -14,7 +14,6 @@ import {
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import axios from 'axios'
 import Link from 'next/link'
 
 const Main = () => {
@@ -31,7 +30,7 @@ const Main = () => {
   const contentRef = useRef<HTMLDivElement>(null)
 
   const send_url = async () => {
-    const apiUrl = 'http://localhost:8000/predict/url'
+    const apiUrl = 'https://aswinr24-threatslueth-api.hf.space/predict/url'
     if (url.trim()) {
       try {
         if (hiddenDivRef1.current) {
@@ -87,7 +86,7 @@ const Main = () => {
   }
 
   const send_email = async () => {
-    const apiUrl = 'http://localhost:8000/predict/email'
+    const apiUrl = 'https://aswinr24-threatslueth-api.hf.space/predict/email'
     if (email.trim()) {
       try {
         if (hiddenDivRef1.current) {
@@ -143,7 +142,7 @@ const Main = () => {
   }
 
   const send_msg = async () => {
-    const apiUrl = 'http://localhost:8000/predict/msg'
+    const apiUrl = 'https://aswinr24-threatslueth-api.hf.space/predict/msg'
     if (msg.trim()) {
       try {
         if (hiddenDivRef1.current) {
@@ -250,7 +249,7 @@ const Main = () => {
                 </CardContent>
                 <CardFooter className="px-20 pl-40 ml-20">
                   <div className="pl-20 ml-20">
-                    <Button className="px-10" onClick={send_url}>
+                    <Button className="px-10 ml-4" onClick={send_url}>
                       Scan
                     </Button>
                   </div>
@@ -278,7 +277,7 @@ const Main = () => {
                 </CardContent>
                 <CardFooter className="px-20 pl-40 ml-20">
                   <div className="pl-20 ml-20">
-                    <Button className="px-10" onClick={send_email}>
+                    <Button className="px-10 ml-4" onClick={send_email}>
                       Scan
                     </Button>
                   </div>
@@ -305,7 +304,7 @@ const Main = () => {
                 </CardContent>
                 <CardFooter className="px-20 pl-40 ml-20">
                   <div className="pl-20 ml-20">
-                    <Button className="px-10" onClick={send_msg}>
+                    <Button className="px-10 ml-4" onClick={send_msg}>
                       Scan
                     </Button>
                   </div>

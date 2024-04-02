@@ -21,8 +21,10 @@ import {
 } from '@/components/ui/form'
 import { toast } from '@/components/ui/use-toast'
 import { Button } from './ui/button'
+import { useRouter } from 'next/navigation'
 
 const About = () => {
+  const router = useRouter()
   const reportRef = useRef<HTMLDivElement>(null)
   const contactRef = useRef<HTMLDivElement>(null)
 
@@ -35,6 +37,10 @@ const About = () => {
     if (contactRef.current) {
       contactRef.current.scrollIntoView({ behavior: 'smooth' })
     }
+  }
+
+  const handleSignInClick = () => {
+    router.push('/signin')
   }
 
   return (
@@ -129,25 +135,28 @@ const About = () => {
               onClick={contactHandler}
               className=" text-green-600 px-3"
             >
-              Here
+              Us
             </button>
           </h3>
         </div>
-        <div className="py-10">
+        <div className="pt-10 pb-5">
           <h1 className="text-3xl text-green-600">Contribute:</h1>
           <div className="pr-60 mr-20">
-            <div className="py-5 pt-5 pr-30 mr-30">
-              <label className="block mb-2 pl-2 text-lg font-medium">
+            <div className="py-5 pt-7 pl-4">
+              <Button
+                variant="outline"
+                className="text-lg font-medium border-green-600 border-b-4"
+                onClick={handleSignInClick}
+              >
                 Report URL
-              </label>
-              <Input id="reported_url" placeholder="URL" className="max-w-50" />
+              </Button>
             </div>
           </div>
-          <div className="pt-10 flex">
-            <h1 className="text-xl">Find our source code repository</h1>
+          <div className="pt-3 flex">
+            <h1 className="text-xl pl-4">Find our source code repository</h1>
             <button className="px-2">
               <a href="https://github.com/Aswinr24/ThreatSleuth">
-                <FaGithub className="text-green-600 w-7 h-7" />
+                <FaGithub className="text-green-600 w-8 h-8" />
               </a>
             </button>
           </div>
