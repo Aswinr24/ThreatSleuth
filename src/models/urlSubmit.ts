@@ -7,5 +7,5 @@ const urlSchema = new Schema({
         timestamps: true
     }
 )
-const UrlModel = models.url || model("contact", urlSchema)
+const UrlModel = models.url || model("url", urlSchema)
 export default UrlModel

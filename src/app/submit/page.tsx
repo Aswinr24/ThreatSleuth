@@ -11,6 +11,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form'
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
 
@@ -24,10 +33,10 @@ const page = () => {
   const router = useRouter()
   const { data: session } = useSession()
   const [url, setUrl] = useState('')
-  const [type, setType] = useState('')
+  const [urltype, setUrltype] = useState<string>('')
   const input = {
     url: url,
-    type: type,
+    type: urltype,
   }
   const handleSubmit = async () => {
     try {
@@ -39,6 +48,7 @@ const page = () => {
       console.log('User input saved successfully')
       console.log(data)
       router.push('/')
+      console.log(urltype)
     } catch (error) {
       console.error('Error saving user input:', error)
     }
@@ -58,24 +68,16 @@ const page = () => {
         />
       </div>
       <div className="flex py-5 px-60 ml-20">
-        <Select>
+        <Select onValueChange={(value) => setUrltype(value)}>
           <SelectTrigger className="w-[360px] border-2 border-green-600 ">
             <SelectValue placeholder="Type of URL:" />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-              <SelectItem
-                value="malacious"
-                className={space_mono.className}
-                onClick={() => setType('malacious')}
-              >
+              <SelectItem value="malacious" className={space_mono.className}>
                 Malacious/Unsafe
               </SelectItem>
-              <SelectItem
-                value="safe"
-                className={space_mono.className}
-                onClick={() => setType('safe')}
-              >
+              <SelectItem value="safe" className={space_mono.className}>
                 Safe
               </SelectItem>
             </SelectGroup>
