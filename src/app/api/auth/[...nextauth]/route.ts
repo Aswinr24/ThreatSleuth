@@ -4,7 +4,7 @@ import GoogleProvider from 'next-auth/providers/google';
 import DiscordProvider from "next-auth/providers/discord";
 import TwitterProvider from "next-auth/providers/twitter";
 
-export const authOptions: NextAuthOptions = {
+const authOptions: NextAuthOptions = {
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_CLIENT_ID ?? "",
