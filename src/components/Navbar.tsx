@@ -41,7 +41,7 @@ const Navbar = () => {
     <header className="header fixed left-0 w-full top-0 backdrop-filter backdrop-blur-md bg-opacity-50">
       <nav className="bg-white border-gray-200 dark:bg-gray-900 py-5 lg:pl-0 sm:pl-5">
         <div className="max-w-screen-xl flex items-center mx-auto lg:gap-60 sm:gap-40">
-          <span className="flex text-2xl font-semibold whitespace-nowrap dark:text-white lg:mr-10 sm:mr-0">
+          <span className="flex lg:text-2xl sm:text-4xl text-4xl font-semibold whitespace-nowrap dark:text-white lg:mr-10 sm:mr-0">
             <Image
               src={logo}
               alt="logo"
@@ -50,24 +50,29 @@ const Navbar = () => {
             <Image
               src={logo}
               alt="logo"
-              className="h-9 w-9 ml-5 sm:mt-3 lg:mt-0 sm:block lg:hidden block"
+              className="h-12 w-12 ml-10 mt-1 sm:block lg:hidden block"
             />
-            <h1 className="lg:mt-1 sm:mt-0">Threat</h1>
-            <h1 className="text-green-600 lg:mt-1 sm:mt-0">Slueth</h1>
+            <h1 className="mt-1">Threat</h1>
+            <h1 className="text-green-600 mt-1">Slueth</h1>
           </span>
-          <div className="lg:hidden sm:block block">
+          <div className="lg:hidden md:hidden sm:block block">
             <div className="menu absolute top-0 right-0 h-full bg-white z-50">
               <div
-                className={`menu-icon absolute top-3 right-4 ${
+                className={`menu-icon absolute top-5 right-7 ${
                   isOpen ? 'text-green-600' : 'text-black'
                 }`}
               >
-                <Hamburger toggled={isOpen} size={20} toggle={setIsOpen} />
+                <Hamburger
+                  toggled={isOpen}
+                  size={32}
+                  toggle={setIsOpen}
+                  rounded
+                />
               </div>
 
               {isOpen && (
                 <motion.div
-                  className="menu-items text-center absolute text-xl top-14 right-0 p-4 bg-white"
+                  className="menu-items text-center absolute text-3xl top-14 right-0 p-4 bg-white"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: isOpen ? 1 : 0 }}
                   transition={{ duration: 0.5 }}
@@ -96,7 +101,7 @@ const Navbar = () => {
                     </li>
                   </ul>
                   <Button
-                    className="text-white py-2 px-4 mb-6 "
+                    className="text-white text-xl py-6 px-6 mb-6"
                     variant="default"
                     onClick={() => handleClickContribute()}
                   >

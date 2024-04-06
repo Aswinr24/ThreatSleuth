@@ -69,12 +69,18 @@ const Main = () => {
         if (data['prediction'] == 1) {
           if (hiddenDivRef1.current) {
             hiddenDivRef1.current.style.display = 'block'
-            scrollToContent()
+            window.scrollTo({
+              top: 200,
+              behavior: 'smooth',
+            })
           }
         } else if (data['prediction'] == 0) {
           if (hiddenDivRef2.current) {
             hiddenDivRef2.current.style.display = 'block'
-            scrollToContent()
+            window.scrollTo({
+              top: 200,
+              behavior: 'smooth',
+            })
           }
         }
       } catch (error) {
@@ -120,7 +126,6 @@ const Main = () => {
           throw new Error('Network response was not ok')
         }
 
-        // Assuming the response is JSON
         const data = await response.json()
         if (data['prediction'] == 1) {
           if (hiddenDivRef3.current) {
@@ -205,18 +210,37 @@ const Main = () => {
 
   return (
     <>
-      <div className="p-10 ml-10">
-        <span className="text-2xl flex gap-2 pt-5 px-12 pl-10 ml-20 -mr-10 py-5">
-          <h1 className="text-4xl text-green-600 mb-10 pl-20 ml-20">AI </h1>
+      <div className="p-10 ml-10 lg:max-w-full max-w-screen">
+        <span className="text-2xl lg:flex gap-2 pt-5 py-12 mb-3 text-center justify-center items-center mr-8 sm:hidden hidden">
+          <h1 className="text-4xl flex text-green-600">AI </h1>
           <h2 className="pt-1 pl-2"> powered phishing / malware detection</h2>
         </span>
-        <div className="text-xl px-10 pr-20 -mt-5">
+        <div className="lg:hidden sm:block block">
+          <span className="text-2xl sm:flex text-center justify-center items-center lg:hidden flex pl-20">
+            <h1 className="text-4xl pl-32 ml-24 text-green-600 text-center">
+              AI{' '}
+            </h1>
+            <h2 className="pl-0 mt-8 text-center pr-6">
+              {' '}
+              powered phishing / malware detection
+            </h2>
+          </span>
+          <div className="text-xl py-10 pl-36 sm:block lg:hidden block text-center">
+            <h3 className="text-gray-700 pl-20 ml-10">
+              Detect malware or phishing URLs, e-mails and messages on the go!
+            </h3>
+          </div>
+        </div>
+        <div className="text-xl px-10 pr-20 -mt-5 lg:block sm:hidden hidden">
           <h3 className="text-gray-700 mr-20 pl-20 ml-20">
             Detect malware or phishing URLs and e-mail/messages on the go!
           </h3>
         </div>
 
-        <div className="px-10 mr-20 pt-10 pb-5" ref={contentRef}>
+        <div
+          className="px-10 mr-20 pt-10 pb-5 lg:block sm:hidden hidden"
+          ref={contentRef}
+        >
           <Tabs defaultValue="url" className="w-full px-10">
             <TabsList className="grid w-full grid-cols-3 h-15 gap-2 p-2">
               <TabsTrigger value="url" className="text-green-700 text-lg">
@@ -313,9 +337,108 @@ const Main = () => {
             </TabsContent>
           </Tabs>
         </div>
-
         <div
-          className="px-20 pl-10 pr-30 mr-10 hidden"
+          className="pl-10 ml-8 pt-5 pb-5 sm:block lg:hidden block"
+          ref={contentRef}
+        >
+          <Tabs defaultValue="url" className="w-full px-10 ml-24">
+            <TabsList className="grid w-full grid-cols-3 h-15 gap-2 p-2">
+              <TabsTrigger value="url" className="text-green-700 text-lg">
+                Scan URL
+              </TabsTrigger>
+              <TabsTrigger value="email" className="text-green-700 text-lg">
+                Scan e-mail
+              </TabsTrigger>
+              <TabsTrigger value="msg" className="text-green-700 text-lg">
+                Scan message
+              </TabsTrigger>
+            </TabsList>
+            <TabsContent value="url">
+              <Card>
+                <CardHeader>
+                  <CardDescription className="px-10 pl-12">
+                    <div className="pl-12 text-lg">
+                      scan for malacious or phishing URL
+                    </div>
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  <div className="space-y-1">
+                    <Input
+                      id="name"
+                      placeholder="URL"
+                      onChange={(e) => setUrl(e.target.value)}
+                    />
+                  </div>
+                </CardContent>
+                <CardFooter className="px-20 pl-40 mr-20">
+                  <div className="pl-20">
+                    <Button className="px-10 ml-4" onClick={send_url}>
+                      Scan
+                    </Button>
+                  </div>
+                </CardFooter>
+              </Card>
+            </TabsContent>
+            <TabsContent value="email">
+              <Card>
+                <CardHeader>
+                  <CardDescription className="px-10">
+                    <div className="pl-6 text-lg">
+                      scan to identify phishing or spam e-mail
+                    </div>
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  <div className="space-y-1">
+                    <Textarea
+                      id="current"
+                      placeholder="email content"
+                      className="h-20"
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+                </CardContent>
+                <CardFooter className="px-20 pl-40 mr-20">
+                  <div className="pl-20">
+                    <Button className="px-10 ml-4" onClick={send_email}>
+                      Scan
+                    </Button>
+                  </div>
+                </CardFooter>
+              </Card>
+            </TabsContent>
+            <TabsContent value="msg">
+              <Card>
+                <CardHeader>
+                  <CardDescription className="px-10 pl-12">
+                    <div className="pl-12 ml-10 text-lg">
+                      scan to detect spam messages
+                    </div>
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  <div className="space-y-1">
+                    <Textarea
+                      id="current"
+                      placeholder="message content"
+                      onChange={(e) => setMsg(e.target.value)}
+                    />
+                  </div>
+                </CardContent>
+                <CardFooter className="px-20 pl-40 mr-20">
+                  <div className="pl-20">
+                    <Button className="px-10 ml-4" onClick={send_msg}>
+                      Scan
+                    </Button>
+                  </div>
+                </CardFooter>
+              </Card>
+            </TabsContent>
+          </Tabs>
+        </div>
+        <div
+          className="lg:px-10 px-0 lg:pl-10 pl-40 lg:ml-0 ml-16 lg:mr-20 sm:-mr-10 -mr-10 hidden"
           id="resultMurl"
           ref={hiddenDivRef1}
         >
