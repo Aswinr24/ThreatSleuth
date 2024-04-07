@@ -130,12 +130,18 @@ const Main = () => {
         if (data['prediction'] == 1) {
           if (hiddenDivRef3.current) {
             hiddenDivRef3.current.style.display = 'block'
-            scrollToContent()
+            window.scrollTo({
+              top: 300,
+              behavior: 'smooth',
+            })
           }
         } else if (data['prediction'] == 0) {
           if (hiddenDivRef4.current) {
             hiddenDivRef4.current.style.display = 'block'
-            scrollToContent()
+            window.scrollTo({
+              top: 300,
+              behavior: 'smooth',
+            })
           }
         }
       } catch (error) {
@@ -186,12 +192,18 @@ const Main = () => {
         if (data['prediction'] == 1) {
           if (hiddenDivRef5.current) {
             hiddenDivRef5.current.style.display = 'block'
-            scrollToContent()
+            window.scrollTo({
+              top: 300,
+              behavior: 'smooth',
+            })
           }
         } else if (data['prediction'] == 0) {
           if (hiddenDivRef6.current) {
             hiddenDivRef6.current.style.display = 'block'
-            scrollToContent()
+            window.scrollTo({
+              top: 300,
+              behavior: 'smooth',
+            })
           }
         }
       } catch (error) {
@@ -199,12 +211,6 @@ const Main = () => {
       }
     } else {
       return
-    }
-  }
-
-  const scrollToContent = () => {
-    if (contentRef.current) {
-      contentRef.current.scrollIntoView({ behavior: 'smooth' })
     }
   }
 
