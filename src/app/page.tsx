@@ -2,6 +2,21 @@ import Navbar from '@/components/Navbar'
 import Main from '@/components/Main'
 import About from '@/components/About'
 import { Space_Mono } from 'next/font/google'
+import Head from 'next/head'
+import { Metadata } from 'next'
+import type { Viewport } from 'next'
+
+export const metadata: Metadata = {
+  title: 'ThreatSleuth',
+  applicationName: 'ThreatSleuth',
+}
+
+export const viewport: Viewport = {
+  initialScale: 1,
+  maximumScale: 1,
+  width: 'device-width',
+  viewportFit: 'cover',
+}
 
 const space_mono = Space_Mono({
   subsets: ['latin'],

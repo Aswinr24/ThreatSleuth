@@ -32,11 +32,11 @@ const About = () => {
   return (
     <div className="py-10">
       <div className="lg:pr-10 lg:mr-20 pr-0 mr-0 lg:ml-0 lg:pl-0 sm:ml-20 ml-20 sm:pl-20 pl-48 text-center">
-        <span className="flex lg:text-4xl sm:text-3xl text-3xl py-5 lg:pr-20 sm:pr-0 pr-0 lg:pl-0 sm:pl-36 mt-3">
+        <span className="flex lg:text-4xl sm:text-3xl text-3xl py-5 lg:pr-20 sm:pr-0 pr-0 lg:pl-0 sm:pl-4 pl-4 mt-3">
           What is Threat<h2 className="text-green-600">Sleuth?</h2>
         </span>
       </div>
-      <div className="py-6 px-2 lg:pl-0 pl-48 lg:ml-0 ml-20">
+      <div className="py-6 px-2 lg:pl-0 pl-48 lg:ml-0 ml-24">
         <h3 className="text-xl">
           ThreatSlueth is an AI powered solution to detect malware or phishing
           URLs, spam emails and messages on the go!
@@ -148,29 +148,31 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-3">
+      <div className="lg:grid lg:grid-cols-3 sm:block block">
         <Contact />
         <div className="py-10 pt-10" ref={contactRef}>
-          <h1 className="text-2xl mt-20 pl-10">Reach us Out:</h1>
-          <div className="flex gap-10 py-5 ml-10">
+          <h1 className="text-2xl lg:mt-20 mt-0 sm:mt-0 lg:pl-10 pl-48 sm:pl-48 lg:ml-0 sm:ml-28 ml-28">
+            Reach us Out:
+          </h1>
+          <div className="flex gap-10 py-5 lg:ml-10 sm:ml-48 ml-48 lg:pl-0 sm:pl-20 pl-28">
             <button>
               <a href="mailto:h30raswin@gmail.com">
-                <LuMail className="w-7 h-7 text-green-600" />
+                <LuMail className="w-8 h-8 text-green-600" />
               </a>
             </button>
             <button>
-              <a href="mailto:h30raswin@gmail.com">
-                <FaLinkedin className="w-7 h-7 text-green-600" />
+              <a href="javascript:void(0);">
+                <FaLinkedin className="w-8 h-8 text-green-600" />
               </a>
             </button>
             <button>
-              <a href="mailto:h30raswin@gmail.com">
-                <FaDiscord className="w-7 h-7 text-green-600" />
+              <a href="javascript:void(0);">
+                <FaDiscord className="w-8 h-8 text-green-600" />
               </a>
             </button>
             <button>
-              <a href="mailto:h30raswin@gmail.com">
-                <FaGithub className="w-7 h-7 text-green-600" />
+              <a href="https://github.com/Aswinr24/ThreatSleuth">
+                <FaGithub className="w-8 h-8 text-green-600" />
               </a>
             </button>
           </div>
