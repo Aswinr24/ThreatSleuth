@@ -32,7 +32,7 @@ const Contact = () => {
 
   return (
     <section className="bg-white dark:bg-gray-900 col-span-2">
-      <div className="py-8 lg:py-16 px-2 max-w-screen-md">
+      <div className="py-8 lg:py-16 px-2 max-w-screen lg:pr-24 lg:mr-8">
         <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
           Contact Us
         </h2>

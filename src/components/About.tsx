@@ -31,18 +31,18 @@ const About = () => {
 
   return (
     <div className="py-10">
-      <div className="pr-10 mr-10">
-        <span className="flex text-4xl py-5 pr-20 mr-30 -ml-30 mt-3">
+      <div className="lg:pr-10 lg:mr-20 pr-0 mr-0 lg:ml-0 lg:pl-0 sm:ml-20 ml-20 sm:pl-20 pl-48 text-center">
+        <span className="flex lg:text-4xl sm:text-3xl text-3xl py-5 lg:pr-20 sm:pr-0 pr-0 lg:pl-0 sm:pl-36 mt-3">
           What is Threat<h2 className="text-green-600">Sleuth?</h2>
         </span>
       </div>
-      <div className="py-6 px-2">
+      <div className="py-6 px-2 lg:pl-0 pl-48 lg:ml-0 ml-20">
         <h3 className="text-xl">
           ThreatSlueth is an AI powered solution to detect malware or phishing
           URLs, spam emails and messages on the go!
         </h3>
         <h1 className="text-2xl pt-5">How does it work?</h1>
-        <h3 className="text-xl pt-5">
+        <h3 className="text-xl pt-5 pl-2">
           It employs ML models trained on large amount of data to analyze and
           identify the URLs, emails and messages for features indication spam or
           malacious intent. {'\n'}
@@ -55,7 +55,7 @@ const About = () => {
           What types of features and characteristics does ThreatSleuth analyze
           to identify potential phishing URLs?
         </h1>
-        <div className="flex">
+        <div className="flex pl-2">
           <h3 className="text-xl pt-5">
             The data from the
             <Link
@@ -77,7 +77,7 @@ const About = () => {
           What is the typical response time for ThreatSleuth to identify a
           potential threat after analyzing a URL, email, or message?
         </h1>
-        <h3 className="text-xl pt-5">
+        <h3 className="text-xl pt-5 pl-2">
           ThreatSlueth provides rapid response in real time(as you would have
           just seen above:{')'}) typically in range of milliseconds to few
           seconds The trained compressed ml model coupled with a FastAPI server
@@ -87,8 +87,8 @@ const About = () => {
           How accurate is ThreatSleuth in detecting phishing attempts and spam
           emails/messages?
         </h1>
-        <div className="flex">
-          <h3 className="text-xl pt-5">
+        <div className="flex pl-2">
+          <h3 className="text-xl pt-5 ">
             Well the accuracy was excellent on the testing set of the dataset,
             its your turn to test it with some real-world data and analyze. Do
             you find inaccurate results? please report those URLs
@@ -105,7 +105,7 @@ const About = () => {
           How does ThreatSleuth handle false positives and false negatives in
           its threat detection process?
         </h1>
-        <h3 className="text-xl pt-5">
+        <h3 className="text-xl pt-5 pl-2">
           Predicting false positives and negatives is a common challenge
           prevelant across most of the ML models throughout the world due to
           class imbalance in the datset, here we take a user feedback based
