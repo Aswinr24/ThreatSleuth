@@ -32,11 +32,11 @@ const About = () => {
   return (
     <div className="py-10">
       <div className="lg:pr-10 lg:mr-20 pr-0 mr-0 lg:ml-0 lg:pl-0 sm:ml-20 ml-20 sm:pl-20 pl-48 text-center">
-        <span className="flex lg:text-4xl sm:text-3xl text-3xl py-5 lg:pr-20 sm:pr-0 pr-0 lg:pl-0 sm:pl-4 pl-4 mt-3">
+        <span className="flex lg:text-4xl sm:text-3xl text-3xl py-5 lg:pr-20 sm:pr-0 pr-0 lg:pl-0 sm:pl-4 pl-8 mt-3">
           What is Threat<h2 className="text-green-600">Sleuth?</h2>
         </span>
       </div>
-      <div className="py-6 px-2 lg:pl-0 pl-48 lg:ml-0 ml-24">
+      <div className="py-6 px-2 lg:pl-0 pl-48 sm:pl-48 lg:ml-0 ml-28 sm:ml-28">
         <h3 className="text-xl">
           ThreatSlueth is an AI powered solution to detect malware or phishing
           URLs, spam emails and messages on the go!
@@ -148,7 +148,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className="lg:grid lg:grid-cols-3 sm:block block">
+      <div className="lg:grid lg:grid-cols-3 sm:block block lg:ml-0 ml-4 sm:ml-4">
         <Contact />
         <div className="py-10 pt-10" ref={contactRef}>
           <h1 className="text-2xl lg:mt-20 mt-0 sm:mt-0 lg:pl-10 pl-48 sm:pl-48 lg:ml-0 sm:ml-28 ml-28">

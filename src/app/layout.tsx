@@ -2,7 +2,6 @@ import { Space_Mono } from 'next/font/google'
 import './globals.css'
 import { getServerSession } from 'next-auth'
 import SessionProvider from '@/components/SessionProvider'
-import { Metadata } from 'next'
 
 const space_mono = Space_Mono({
   subsets: ['latin'],

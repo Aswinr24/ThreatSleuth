@@ -7,6 +7,7 @@ const Contact = () => {
   const [message, setMessage] = useState('')
   const [subject, setSubject] = useState('')
   const [result, setResult] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const input = {
     email: email,
     subject: subject,
@@ -16,6 +17,7 @@ const Contact = () => {
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault()
+    setIsLoading(true)
     try {
       let res = await fetch('/api/contact', {
         method: 'POST',
@@ -24,6 +26,7 @@ const Contact = () => {
       let data = await res.json()
       console.log('User input saved successfully')
       console.log(data)
+      setIsLoading(false)
       setResult(true)
       setTimeout(() => {
         window.scrollTo({
@@ -32,9 +35,9 @@ const Contact = () => {
         })
         setResult(false)
       }, 3000)
-      setEmail('') // Clear email input
-      setMessage('') // Clear message input
-      setSubject('') // Clear subject input
+      setEmail('')
+      setMessage('')
+      setSubject('')
       console.log(subject)
     } catch (error) {
       console.error('Error saving user input:', error)
@@ -92,7 +95,11 @@ const Contact = () => {
             className="py-3 px-5 text-sm"
             onClick={(e) => handleSubmit(e)}
           >
-            Send message
+            {isLoading ? (
+              <div className="animate-spin rounded-full mx-10 h-6 w-6 border-t-2 border-b-2 border-r-2 border-white"></div>
+            ) : (
+              <span>Send message</span>
+            )}
           </Button>
         </form>
       </div>
