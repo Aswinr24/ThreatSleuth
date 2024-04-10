@@ -20,7 +20,6 @@ const Main = () => {
   const [url, setUrl] = useState('')
   const [msg, setMsg] = useState('')
   const [email, setEmail] = useState('')
-  const [showDiv, setShowDiv] = useState(false)
   const hiddenDivRef1 = useRef<HTMLDivElement>(null)
   const hiddenDivRef2 = useRef<HTMLDivElement>(null)
   const hiddenDivRef3 = useRef<HTMLDivElement>(null)
@@ -473,7 +472,7 @@ const Main = () => {
         </div>
 
         <div
-          className="px-20 pl-10 pr-30 mr-10 hidden"
+          className="lg:px-10 px-0 lg:pl-10 pl-40 lg:ml-0 ml-16 lg:mr-20 sm:-mr-10 -mr-10 hidden"
           id="resultSurl"
           ref={hiddenDivRef2}
         >
@@ -499,8 +498,8 @@ const Main = () => {
         </div>
 
         <div
-          className="px-20 pl-10 pr-30 mr-10 hidden"
-          id="resultSurl"
+          className="lg:px-10 px-0 lg:pl-10 pl-40 lg:ml-0 ml-16 lg:mr-20 sm:-mr-10 -mr-10 hidden"
+          id="resultMurl"
           ref={hiddenDivRef3}
         >
           <div className="w-full rounded-lg bg-red-100 shadow-md duration-300 hover:scale-105 hover:shadow-xl pt-2">
@@ -528,7 +527,7 @@ const Main = () => {
         </div>
 
         <div
-          className="px-20 pl-10 pr-30 mr-10 hidden"
+          className="lg:px-10 px-0 lg:pl-10 pl-40 lg:ml-0 ml-16 lg:mr-20 sm:-mr-10 -mr-10 hidden"
           id="resultSurl"
           ref={hiddenDivRef4}
         >
@@ -555,7 +554,7 @@ const Main = () => {
         </div>
 
         <div
-          className="px-20 pl-10 pr-30 mr-10 hidden"
+          className="lg:px-10 px-0 lg:pl-10 pl-40 lg:ml-0 ml-16 lg:mr-20 sm:-mr-10 -mr-10 hidden"
           id="resultSurl"
           ref={hiddenDivRef5}
         >
@@ -584,7 +583,7 @@ const Main = () => {
         </div>
 
         <div
-          className="px-20 pl-10 pr-30 mr-10 hidden"
+          className="lg:px-10 px-0 lg:pl-10 pl-40 lg:ml-0 ml-16 lg:mr-20 sm:-mr-10 -mr-10 hidden"
           id="resultSurl"
           ref={hiddenDivRef6}
         >

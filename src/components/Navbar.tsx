@@ -12,22 +12,34 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   const handleClickContribute = () => {
+    let scrollValue
+    if (window.innerWidth > 800) {
+      scrollValue = 1800
+    } else if (window.innerWidth < 800) {
+      scrollValue = 2400
+    }
     window.scrollTo({
-      top: 1500,
+      top: scrollValue,
       behavior: 'smooth',
     })
     setIsOpen(false)
   }
   const handleClickAbout = () => {
     window.scrollTo({
-      top: 500,
+      top: 600,
       behavior: 'smooth',
     })
     setIsOpen(false)
   }
   const handleClickContact = () => {
+    let scrollValue
+    if (window.innerWidth > 800) {
+      scrollValue = 2200
+    } else if (window.innerWidth < 800) {
+      scrollValue = 2800
+    }
     window.scrollTo({
-      top: 2000,
+      top: scrollValue,
       behavior: 'smooth',
     })
     setIsOpen(false)

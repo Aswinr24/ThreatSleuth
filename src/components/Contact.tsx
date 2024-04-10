@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { useRouter } from 'next/navigation'
+import QuerySubmitted from './QuerySubmitted'
 
 const Contact = () => {
-  const router = useRouter()
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [subject, setSubject] = useState('')
@@ -13,7 +12,10 @@ const Contact = () => {
     subject: subject,
     message: message,
   }
-  const handleSubmit = async () => {
+  const handleSubmit = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault()
     try {
       let res = await fetch('/api/contact', {
         method: 'POST',
@@ -23,7 +25,16 @@ const Contact = () => {
       console.log('User input saved successfully')
       console.log(data)
       setResult(true)
-      router.push('/submitted')
+      setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        })
+        setResult(false)
+      }, 3000)
+      setEmail('') // Clear email input
+      setMessage('') // Clear message input
+      setSubject('') // Clear subject input
       console.log(subject)
     } catch (error) {
       console.error('Error saving user input:', error)
@@ -79,12 +90,13 @@ const Contact = () => {
           <Button
             variant="default"
             className="py-3 px-5 text-sm"
-            onClick={handleSubmit}
+            onClick={(e) => handleSubmit(e)}
           >
             Send message
           </Button>
         </form>
       </div>
+      {result && <QuerySubmitted />}
     </section>
   )
 }
