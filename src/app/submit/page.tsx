@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { useSession } from 'next-auth/react'
+import { useSession, signOut } from 'next-auth/react'
 import { Input } from '@/components/ui/input'
 import { Space_Mono } from 'next/font/google'
 import {
@@ -14,7 +14,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
 import Thankyou from '@/components/Thankyou'
-import EnterValid from '@/components/Entervalid'
+import { redirect } from 'next/navigation'
 
 const space_mono = Space_Mono({
   subsets: ['latin'],
@@ -75,22 +75,31 @@ const Page = () => {
       setInvalid(false)
     }
   }
+  const handleOut = () => {
+    signOut()
+    router.push('/signin')
+  }
+  if (!session) {
+    redirect('/signin')
+  }
 
   return (
     <main
-      className={`${space_mono.className} p-24 px-40 flex-col min-h-screen justify-center items-center`}
+      className={`${space_mono.className} p-24 lg:px-40 px-0 sm:px-0 flex-col min-h-screen justify-center items-center`}
     >
-      <div className="flex text-2xl px-20">Hello {session?.user?.name}</div>
-      <div className="flex-col py-8 px-20 text-xl">
+      <div className="flex text-2xl lg:px-20 px-4 sm:px-4 lg:ml-0 ml-6 sm:ml-6">
+        Hello {session?.user?.name}
+      </div>
+      <div className="flex-col py-8 lg:px-20 px-4 sm:px-0 lg:ml-0 ml-6 sm:ml-10 text-xl">
         <h2 className="font-bold py-2">Enter the URL:</h2>
         <Input
           className="border-2 border-green-600"
           onChange={(e) => setUrl(e.target.value)}
         />
       </div>
-      <div className="flex py-5 px-60 ml-20">
+      <div className="lg:flex sm:block block lg:py-5 py-2 sm:py-2 lg:px-60 px-0 sm:px-0 lg:ml-20 ml-12 sm:ml-12">
         <Select onValueChange={(value) => setUrltype(value)}>
-          <SelectTrigger className="w-[360px] border-2 border-green-600 ">
+          <SelectTrigger className="lg:w-[360px] sm:w-[320px] w-[320px] border-2 border-green-600">
             <SelectValue placeholder="Type of URL:" />
           </SelectTrigger>
           <SelectContent>
@@ -104,9 +113,13 @@ const Page = () => {
             </SelectGroup>
           </SelectContent>
         </Select>
-        <Button variant="default" className="ml-20" onClick={handleSubmit}>
+        <Button
+          variant="default"
+          className="lg:ml-20 ml-28 sm:ml-28 lg:mt-0 mt-10 sm:mt-10"
+          onClick={handleSubmit}
+        >
           {isLoading ? (
-            <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-r-2  border-white"></div>
+            <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-r-2 border-white"></div>
           ) : (
             <span>Submit</span>
           )}

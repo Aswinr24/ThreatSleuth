@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button'
 import { Space_Mono } from 'next/font/google'
 import { FaGithub } from 'react-icons/fa'
 import { FaGoogle } from 'react-icons/fa'
-import { GoMail } from 'react-icons/go'
 import { FaDiscord } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 
@@ -22,16 +21,16 @@ function AuthButton() {
   }
   return (
     <main
-      className={`${space_mono.className} p-24 pl-40 flex-col min-h-screen justify-center items-center`}
+      className={`${space_mono.className} p-24 lg:pl-40 sm:pl-0 pl-0 flex-col max-w-screen min-h-screen justify-center items-center`}
     >
-      <div className="px-60 ml-7 items-center justify-center text-xl">
-        <h2 className="pl-20 ml-10 pt-10">
+      <div className="lg:px-60 px-0 sm:px-0 ml-7 text-xl w-full">
+        <h2 className="lg:pl-20 sm:pl-0 pl-0 lg:ml-10 ml-6 sm:ml-6 lg:pt-10 pt-0 sm:pt-0 w-full text-center lg:text-left sm:text-center">
           Just A verification, don&apos;t fret
         </h2>
       </div>
       <br />
-      <div className="py-10 px-60 text-xl">
-        <div className="pl-20 pb-8 pt-5 ml-20">
+      <div className="py-10 lg:px-60 px-0 sm:px-0 text-xl">
+        <div className="lg:pl-20 pl-0 sm:pl-0 pb-8 pt-5 lg:ml-20 ml-6 sm:ml-6">
           <Button
             onClick={() => signIn('google')}
             className=" ml-10 border-2 border-green-600 px-7 py-5"
@@ -41,7 +40,7 @@ function AuthButton() {
             <h2 className="pl-2 pr-1">Continue with Google</h2>
           </Button>
         </div>
-        <div className="pl-20 pb-8 ml-20">
+        <div className="lg:pl-20 pl-0 sm:pl-0 pb-8 lg:ml-20 ml-6 sm:ml-6">
           <Button
             onClick={() => signIn('github')}
             variant="outline"
@@ -51,7 +50,7 @@ function AuthButton() {
             <h2 className="pl-2 pr-1">Continue with Github</h2>
           </Button>
         </div>
-        <div className="pl-20 pb-8 ml-20">
+        <div className="lg:pl-20 pl-0 sm:pl-0 pb-8 lg:ml-20 ml-6 sm:ml-6">
           <Button
             onClick={() => signIn('discord')}
             variant="outline"
@@ -61,7 +60,7 @@ function AuthButton() {
             <h2 className="pl-2">Continue with Discord</h2>
           </Button>
         </div>
-        <div className="pl-20 ml-20">
+        <div className="lg:pl-20 pl-0 sm:pl-0 pb-8 lg:ml-20 ml-6 sm:ml-6">
           <Button
             onClick={() => signIn('twitter')}
             variant="outline"
